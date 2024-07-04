@@ -3,6 +3,7 @@ package main
 import (
 	"myapp/config"
 	"myapp/routes"
+	"myapp/routines"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -12,6 +13,7 @@ import (
 func main() {
 	config.Setup()
 
+	go routines.StartDailyUpdateRoutine()
 	r := gin.Default()
 
 	// Configure CORS
